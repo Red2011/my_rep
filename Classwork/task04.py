@@ -21,8 +21,7 @@ Write a function that detects if a number is Armstrong number in functionaly sty
 def is_armstrong(number: int) -> bool:
     number_list = list(map(int, str(number)))
     map_p = list(map(lambda x: x ** len(number_list), number_list))
-    if number == sum(map_p): return True
-    else: return False
+    return number == sum(map_p)
 
 
 assert is_armstrong(153) == True, 'Is Armstrong number'
