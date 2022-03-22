@@ -22,14 +22,25 @@ from collections.abc import Callable
 from functools import lru_cache
 
 
+def function(a, b):
+    return (a ** b) ** 2
+
+
 def cache(func: Callable) -> Callable:
     return lru_cache()(lambda *args: func(*args))
 
 
-def sum_of_2_component(x, y):
-    return x + y
+cache_func = cache(function)
 
+some = 100, 200
 
-a = cache(sum_of_2_component)
-print(a(56, 48))
-print(a.cache_info())
+val_1 = cache_func(*some)
+val_2 = cache_func(*some)
+
+# value equality check
+assert val_1 is val_2
+
+print(val_1)
+print(val_2)
+# information about the size of the cache and its statistics
+print(cache_func.cache_info())
