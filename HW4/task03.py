@@ -4,7 +4,6 @@ if line starts with "error" and to the stdout otherwise.
 
 
 #>>> my_precious_logger("error: file not found")
-# stderr
 'error: file not found'
 
 
@@ -26,14 +25,17 @@ You will learn:
 import sys
 
 
-def my_precious_logger(text: str):
+def my_precious_logger(text: str) -> str:
     default_line = "error"
     line_now = ""
     if len(text) > 4:
         for it in range(0, 5):
+            # make sure the first 5 characters are "error"
             line_now += text[it]
     if line_now == default_line:
+        # writing to stderr file
         sys.stderr.write(text)
+        return "OK"
     else:
         sys.stdout.write(text)
 
