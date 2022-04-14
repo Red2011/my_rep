@@ -107,8 +107,8 @@ class Teacher(Naming):
         if len(result.solution) < 5:
             return False
         else:
-            # result.homework.text: this is key, which contains the task text
-            # .append(result): result - value equal to HomeworkResult
+            # result.homework: this is key, which contains the task
+            # result.solution: result - value equal to the HomeworkResult text
             Teacher.homework_done[result.homework] = result.solution
             return True
 
