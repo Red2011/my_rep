@@ -56,7 +56,8 @@ class Student:
         self.last_name = last_name
         self.first_name = first_name
 
-    def do_homework(self, homework: Homework):
+    @staticmethod
+    def do_homework(homework: Homework):
         if homework.is_active():
             return homework
         else:
@@ -69,7 +70,8 @@ class Teacher:
         self.last_name = last_name
         self.first_name = first_name
 
-    def create_homework(self, text, deadline) -> Homework:
+    @staticmethod
+    def create_homework(text, deadline) -> Homework:
         return Homework(text, datetime.timedelta(deadline))
 
 
