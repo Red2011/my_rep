@@ -5,6 +5,9 @@ of this element in the tree.
 
 Tree can only contains basic structures like:
     str, list, tuple, dict, set, int, bool
+>>> exampl_tree = {"first": ["RED", "BLUE"], "second": {"simple_key": ["simple", "RED", "of", "RED", "valued"]}}
+>>> print(find_occurrences(exampl_tree, "RED"))
+3
 """
 from typing import Any
 
@@ -35,4 +38,7 @@ def find_occurrences(tree: dict, element: Any) -> int:
 
 
 if __name__ == '__main__':
-    print(find_occurrences(example_tree, "RED"))  # 6
+    import doctest
+
+    print(doctest.testmod())
+    print(find_occurrences(example_tree, "RED")) # 6
