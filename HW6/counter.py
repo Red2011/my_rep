@@ -25,9 +25,9 @@ def instances_counter(cls):
         # initial counter value
         __instances_amt = 0
 
-        def __init__(self, *args):
+        def __init__(self, *args, **kwargs):
             # the function needed to apply the decorator to the class with some number of arguments
-            super().__init__(*args)
+            super().__init__(*args, **kwargs)
             # +1 for counter value
             Wrapper.__instances_amt += 1
 
